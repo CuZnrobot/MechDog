@@ -3,6 +3,13 @@
 	"MechDog.get_voltage|block": "返回电量值（V）",
 	"MechDog.default_action_run|block": "运行|%action|动作组",
 
+	"MechDog.action_name.left_foot_kick|block": "左踢球",
+	"MechDog.action_name.right_foot_kick|block": "右踢球",
+	"MechDog.action_name.stand_four_legs|block": "四脚站立",
+	"MechDog.action_name.sit_dowm|block": "坐下",
+	"MechDog.action_name.go_prone|block": "趴下",
+	"MechDog.action_name.stand_two_legs|block": "双腿站立",
+
 	"{id:subcategory}Init":"初始化",
 	"{id:subcategory}Base":"基础",
 	"{id:subcategory}Kinematics":"运动学"
