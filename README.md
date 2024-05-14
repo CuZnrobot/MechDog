@@ -1,6 +1,6 @@
 # iothouse
 
-Extension for Hiwonder IoTHouse
+Extension for CuZnrobot MechDog
 
 ## License
 
@@ -8,10 +8,10 @@ MIT
 
 ## Supported targets
 
-* for PXT/iothouse
+* for PXT/MechDog
 (The metadata above is needed for package search.)
 
 ```package
-iothouse=github:hiwonder/IoTHouse
+iothouse=github:CuZnrobot/MechDog
 ```
 
