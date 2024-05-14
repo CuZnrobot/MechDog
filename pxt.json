@@ -9,7 +9,9 @@
     "files": [
         "README.md",
         "main.ts",
-        "sendbuffer.asm"
+        "sendbuffer.asm",
+        "_locales/zh/MechDog-strings.json",
+        "_locales/zh/MechDog-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

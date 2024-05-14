@@ -7,7 +7,7 @@ namespace MechDog {
     const INVALID_PORT = 0xff;
     let voltage: number = 0;
     /**
-     * IoTHouse initialization, please execute at boot time
+     * MechDog initialization, please execute at boot time
     */
     //% weight=100 blockId=MechDog_init block="Initialize MechDog"
     //% subcategory=Init
