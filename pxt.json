@@ -9,10 +9,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "RGBLight.ts",
-        "sendbuffer.asm",
-        "_locales/zh/MechDog-strings.json",
-        "_locales/zh/MechDog-jsdoc-strings.json"
+        "sendbuffer.asm"
     ],
     "testFiles": [
         "test.ts"
