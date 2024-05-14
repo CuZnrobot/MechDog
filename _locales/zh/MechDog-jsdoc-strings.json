@@ -1,4 +1,5 @@
 {
 	"MechDog.mechdog_init":"MechDog初始化，请在开机时执行",
-	"MechDog.get_voltage":"返回MechDog的电量值"
+	"MechDog.get_voltage":"返回MechDog的电量值",
+	"MechDog.default_action_run":"运行默认动作组"
 }
