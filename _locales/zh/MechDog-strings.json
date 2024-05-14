@@ -10,7 +10,20 @@
 	"MechDog.action_name.go_prone|block": "趴下",
 	"MechDog.action_name.stand_two_legs|block": "双腿站立",
 
+	"MechDog.action_name.handshake|block": "握手",
+	"MechDog.action_name.scrape_a_bow|block": "作揖",
+	"MechDog.action_name.nodding_motion|block": "点头",
+	"MechDog.action_name.boxing|block": "拳击",
+	"MechDog.action_name.stretch_oneself|block": "伸懒腰",
+	"MechDog.action_name.pee|block": "撒尿",
+	"MechDog.action_name.press_up|block": "俯卧撑",
+	"MechDog.action_name.rotation_pitch|block": "转动Pitch",
+	"MechDog.action_name.rotation_roll|block": "转动Roll",
+	"MechDog.action_name.normal_attitude|block": "正常站立",
+
+
 	"{id:subcategory}Init":"初始化",
 	"{id:subcategory}Base":"基础",
 	"{id:subcategory}Kinematics":"运动学"
 }
+

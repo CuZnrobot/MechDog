@@ -11,13 +11,33 @@ namespace MechDog {
         right_foot_kick = 0x2,
         //% block="Stand on all fours"
         stand_four_legs = 0x3,
-
         //% block="Sit dowm"
         sit_dowm = 0x4,
         //% block="go prone"
         go_prone = 0x5,
         //% block="Stand on two legs"
-        stand_two_legs = 0x6
+        stand_two_legs = 0x6,
+        
+        //% block="Handshake"
+        handshake = 0x7,
+        //% block="Scrape a bow"
+        scrape_a_bow = 0x8,
+        //% block="Nod"
+        nodding_motion = 0x9,
+        //% block="Boxing"
+        boxing = 0x10,
+        //% block="Stretch oneself"
+        stretch_oneself = 0x11,
+        //% block="Pee"
+        pee = 0x12,
+        //% block="press-up"
+        press_up = 0x13,
+        //% block="Turning pitch"
+        rotation_pitch = 0x14,
+        //% block="Turning roll"
+        rotation_roll = 0x15,
+        //% block="Normal attitude"
+        normal_attitude = 0x16
     }
 
     const INVALID_PORT = 0xff;
