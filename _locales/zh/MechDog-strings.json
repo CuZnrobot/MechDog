@@ -1,5 +1,5 @@
 {
-	"MechDog.MechDog_init|block": "初始化MechDog",
+	"MechDog.mechdog_init|block": "初始化MechDog",
 	"MechDog.get_voltage|block": "返回电量值（V）",
 	"{id:subcategory}Init":"初始化",
 	"{id:subcategory}Base":"基础"

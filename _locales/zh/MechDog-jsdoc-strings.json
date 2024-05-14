@@ -1,4 +1,4 @@
 {
-	"MechDog.MechDog_init":"IoTHouse板初始化，请在开机时执行",
+	"MechDog.mechdog_init":"MechDog初始化，请在开机时执行",
 	"MechDog.get_voltage":"返回MechDog的电量值"
 }

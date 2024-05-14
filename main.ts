@@ -9,9 +9,9 @@ namespace MechDog {
     /**
      * MechDog initialization, please execute at boot time
     */
-    //% weight=100 blockId=MechDog_init block="Initialize MechDog"
+    //% weight=100 blockId=mechdog_init block="Initialize MechDog"
     //% subcategory=Init
-    export function MechDog_init() {
+    export function mechdog_init() {
         voltage = 7.0;
     }
 
