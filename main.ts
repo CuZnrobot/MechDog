@@ -17,7 +17,6 @@ namespace MechDog {
         go_prone = 0x5,
         //% block="Stand on two legs"
         stand_two_legs = 0x6,
-        
         //% block="Handshake"
         handshake = 0x7,
         //% block="Scrape a bow"
