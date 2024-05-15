@@ -20,6 +20,8 @@
 	"MechDog.action_name.rotation_roll|block": "转动Roll",
 	"MechDog.action_name.normal_attitude|block": "正常站立",
 
+	"MechDog.set_default_pose|block": "设置为默认站立姿态",
+
 	"MechDog.z_dir.raise|block": "抬高",
 	"MechDog.z_dir.lower|block": "降低",
 	"MechDog.x_dir.forward|block": "向前",
