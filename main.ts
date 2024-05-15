@@ -39,6 +39,20 @@ namespace MechDog {
         normal_attitude = 0x16
     }
 
+    export enum z_dir{
+        //% block="Raise"
+        raise = 0x1,
+        //% block="Lower"
+        lower = 0x2
+    }
+
+    export enum x_dir{
+        //% block="Forward"
+        forward = 0x1,
+        //% block="Backwards"
+        back = 0x2
+    }
+
     const INVALID_PORT = 0xff;
     let voltage: number = 0;
     /*
@@ -70,17 +84,43 @@ namespace MechDog {
         voltage = 7.0;
     }
 
+    /**
+     * Set MechDog as the default standing posture
+    */
+    //% weight=70 blockId=default_action_run block="Run the %action action group"
+    //% subcategory=Kinematics
+    export function set_default_pose(){
+        //1、恢复到初始化姿态，时间(500ms)
+    }
+
+    /**
+     * Raise or lower the body
+    */
+    //% weight=70 blockId=default_action_run block="Run the %action action group"
+    //% subcategory=Kinematics
+    export function change_height(direction: z_dir,distance: number,time: number){
+        //2、抬高/降低身体(mm)，时间(500ms)
+    }
+
+    /**
+     * Gets the power value of MechDog
+    */
     //% weight=78 blockId=get_voltage block="Get the electricity value (V)"
     //% subcategory=Base
     export function get_voltage(): number{
         return voltage;
     }
 
-    //% weight=70 blockId=default_action_run block="Run the %action action group"
+    /**
+     * Default action group to run MechDog
+    */
+    //% weight=60 blockId=default_action_run block="Run the %action action group"
     //% subcategory=Kinematics
     export function default_action_run(action : action_name){
         send_data(action);
     }
+
+    
 
 }
 
