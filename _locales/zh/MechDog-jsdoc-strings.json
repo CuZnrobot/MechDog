@@ -1,5 +1,7 @@
 {
 	"MechDog.mechdog_init":"MechDog初始化，请在开机时执行",
 	"MechDog.get_voltage":"返回MechDog的电量值",
-	"MechDog.default_action_run":"运行默认动作组"
+	"MechDog.default_action_run":"运行默认动作组",
+	"MechDog.set_default_pose":"设置MechDog为默认站立姿态",
+	"MechDog.change_height":"设置MechDog身体抬高或降低"
 }

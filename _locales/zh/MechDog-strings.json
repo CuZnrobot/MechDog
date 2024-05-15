@@ -24,6 +24,7 @@
 	"MechDog.z_dir.lower|block": "降低",
 	"MechDog.x_dir.forward|block": "向前",
 	"MechDog.x_dir.back|block": "向后",
+	"MechDog.change_height|block": "设置MechDog身体|%direction||%distance|mm，运行时间|%time|",
 
 	"{id:subcategory}Init":"初始化",
 	"{id:subcategory}Base":"基础",

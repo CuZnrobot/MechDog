@@ -87,7 +87,7 @@ namespace MechDog {
     /**
      * Set MechDog as the default standing posture
     */
-    //% weight=70 blockId=default_action_run block="Run the %action action group"
+    //% weight=70 blockId=set_default_pose block="Set to the initial standing position"
     //% subcategory=Kinematics
     export function set_default_pose(){
         //1、恢复到初始化姿态，时间(500ms)
@@ -96,7 +96,7 @@ namespace MechDog {
     /**
      * Raise or lower the body
     */
-    //% weight=70 blockId=default_action_run block="Run the %action action group"
+    //% weight=69 blockId=change_height block="It takes %time (ms) to %direction the body by %distance(mm)"
     //% subcategory=Kinematics
     export function change_height(direction: z_dir,distance: number,time: number){
         //2、抬高/降低身体(mm)，时间(500ms)
