@@ -39,41 +39,69 @@ namespace MechDog {
         normal_attitude = 0x16
     }
 
-    export enum z_dir{
+    export enum z_dir {
         //% block="Raise"
         raise = 0x1,
         //% block="Lower"
         lower = 0x2
     }
 
-    export enum x_dir{
+    export enum x_dir {
         //% block="Forward"
         forward = 0x1,
-        //% block="Backwards"
+        //% block="Backward"
+        backward = 0x2
+    }
+
+    export enum run_dir {
+        //% block="Go"
+        go = 0x1,
+        //% block="Bcak"
         back = 0x2
     }
 
-    const INVALID_PORT = 0xff;
-    let voltage: number = 0;
-    /*
-    1、恢复到初始化姿态，时间(500ms)
-    2、抬高/降低身体(mm)，时间(500ms)
-    3、左/右倾身体(度)，时间(500ms)
-    4、设置步态参数，抬腿时间(150ms)，脚尖接地时间(500ms)，抬腿高度(40mm)
-    
-    5、设置前进步幅(80mm)和运动的方向角度(0度)
-    
-    6、运行默认动作组
-    7、运行动作组名(1)的动作组
-    8、停止动作组运行
-
-    9、电量返回值
-    10、发光超声波距离
-    */
-
-    function send_data(data: number){
-
+    export enum default_atcion_name {
+        //% block="left_foot_kick"
+        left_foot_kick = 0x1,
+        //% block="right_foot_kick"
+        right_foot_kick,
+        //% block="stand_four_legs"
+        stand_four_legs,
+        //% block="sit_dowm"
+        sit_dowm,
+        //% block="go_prone"
+        go_prone,
+        //% block="stand_two_legs"
+        stand_two_legs,
+        //% block="handshake"
+        handshake,
+        //% block="scrape_a_bow"
+        scrape_a_bow,
+        //% block="nodding_motion"
+        nodding_motion,
+        //% block="boxing"
+        boxing,
+        //% block="stretch_oneself"
+        stretch_oneself,
+        //% block="pee"
+        pee,
+        //% block="press_up"
+        press_up,
+        //% block="rotation_pitch"
+        rotation_pitch,
+        //% block="rotation_roll"
+        rotation_roll,
+        //% block="stomp_on_the_spot"
+        stomp_on_the_spot,
     }
+
+
+
+    const MECHDOG_IIC_ADDR = 0x32
+    let voltage: number = 0;
+
+    
+
 
     /**
      * MechDog initialization, please execute at boot time
@@ -81,46 +109,160 @@ namespace MechDog {
     //% weight=100 blockId=mechdog_init block="Initialize MechDog"
     //% subcategory=Init
     export function mechdog_init() {
-        voltage = 7.0;
+        basic.clearScreen()
+        //动作暂停
+        stop_action()
+        basic.pause(200)
+        //运动暂停
+        run(run_dir.go , 0 , 0)
+        basic.pause(1000)
+        set_default_pose()
+        basic.pause(1000)
     }
+
 
     /**
      * Set MechDog as the default standing posture
     */
     //% weight=70 blockId=set_default_pose block="Set to the initial standing position"
     //% subcategory=Kinematics
-    export function set_default_pose(){
+    export function set_default_pose() {
         //1、恢复到初始化姿态，时间(500ms)
+        let buf = pins.createBuffer(2)
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x01)
+        buf.setNumber(NumberFormat.UInt8LE, 1, 0x01)
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
     /**
      * Raise or lower the body
     */
-    //% weight=69 blockId=change_height block="It takes %time (ms) to %direction the body by %distance(mm)"
+    //% weight=69 blockId=change_height block="It takes %time (ms) to %direction the z axis by %distance(mm)"
     //% subcategory=Kinematics
-    export function change_height(direction: z_dir,distance: number,time: number){
+    export function change_height(direction: z_dir, distance: number, time: number) {
         //2、抬高/降低身体(mm)，时间(500ms)
+        let buf = pins.createBuffer(5) //这里的num是按字节算的
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x02)
+        if (direction == z_dir.lower)
+            distance = -distance
+        buf.setNumber(NumberFormat.Int16LE, 1, distance) //这里的下标是按开始字节下标算的
+        buf.setNumber(NumberFormat.UInt16LE, 3, time) //所以这里是3，第3个字节开始的
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+
+    /**
+     * Forward and backward the body
+    */
+    //% weight=68 blockId=change_forward_back block="It takes %x_time (ms) to %x_direction the x axis by %x_distance(mm)"
+    //% subcategory=Kinematics
+    export function change_forward_back(x_direction: x_dir, x_distance: number, x_time: number) {
+        //3、前/后 平移身体(度) ，时间(500ms)
+        let buf = pins.createBuffer(5) //这里的num是按字节算的
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x04)
+        if (x_direction == x_dir.backward)
+            x_distance = -x_distance
+        buf.setNumber(NumberFormat.Int16LE, 1, x_distance) //这里的下标是按开始字节下标算的
+        buf.setNumber(NumberFormat.UInt16LE, 3, x_time) //所以这里是3，第3个字节开始的
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+
+    //4、设置步态参数，抬腿时间(150ms) ，脚尖接地时间(500ms) ，抬腿高度(40mm)
+
+    /**
+     * Make the MechDog move
+    */
+    //% weight=67 blockId=run block="Set MechDog %run_dir stride to %stride mm and the direction Angle of movement to %angle degrees"
+    //% subcategory=Kinematics
+    export function run(direction: run_dir, stride: number, angle: number) {
+        // 5、设置前进步幅(80mm)和运动的方向角度(0度)
+        let buf = pins.createBuffer(3) //这里的num是按字节算的
+        if (direction == run_dir.back)
+        {
+            stride = -stride
+        }
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x06)
+        buf.setNumber(NumberFormat.Int16LE, 1, stride) //这里的下标是按开始字节下标算的
+        buf.setNumber(NumberFormat.Int16LE, 2, angle) //所以这里是3，第3个字节开始的
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+
+
+    /**
+     * Run the default action group
+    */
+    //% weight=66 blockId=run_default_action block="Run the %default_action action group"
+    //% subcategory=Kinematics
+    export function run_default_action(default_action: default_atcion_name) {
+        // 6、运行默认动作组
+        let buf = pins.createBuffer(3) //这里的num是按字节算的
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
+        buf.setNumber(NumberFormat.Int16LE, 1, default_action)
+        buf.setNumber(NumberFormat.Int16LE, 2, 0x00)
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+
+
+
+    /**
+     * Run the user action group
+    */
+    //% weight=65 blockId=run_action block="Run the %action_number action group"
+    //% subcategory=Kinematics
+    export function run_action(action_number: number) {
+        // 7、运行动作组名(1)的动作组
+        let buf = pins.createBuffer(3) //这里的num是按字节算的
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
+        buf.setNumber(NumberFormat.Int16LE, 1, 0x00)
+        buf.setNumber(NumberFormat.Int16LE, 2, action_number)
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+    
+    /**
+     * Stop group
+    */
+    //% weight=64 blockId=stop_action block="Stop group"
+    //% subcategory=Kinematics
+    export function stop_action() {
+        // 8、停止动作组运行
+        let buf = pins.createBuffer(2) //这里的num是按字节算的
+        buf.setNumber(NumberFormat.UInt8LE, 0, 0x08)
+        buf.setNumber(NumberFormat.Int16LE, 1, 0x01)
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+    }
+
+    function iicreadtobuf(reg: number, length: number): Buffer {
+        let buf = pins.createBuffer(1)
+        buf.setNumber(NumberFormat.UInt8LE, 0, reg & 0xFF)
+        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+        return pins.i2cReadBuffer(MECHDOG_IIC_ADDR, length)
+    }
+    function iicreadnum(reg: number, btye_num: number, tupe: NumberFormat): number {
+        let buf = iicreadtobuf(reg, btye_num)
+        return buf.getNumber(tupe, 0)
     }
 
     /**
      * Gets the power value of MechDog
     */
     //% weight=78 blockId=get_voltage block="Get the electricity value (V)"
-    //% subcategory=Base
-    export function get_voltage(): number{
+    //% subcategory=sensor
+    export function get_voltage(): number {
+        // 9、电量返回值
+        voltage = iicreadnum(0x09 , 2 , NumberFormat.UInt16LE)
         return voltage;
     }
 
-    /**
-     * Default action group to run MechDog
-    */
-    //% weight=60 blockId=default_action_run block="Run the %action action group"
-    //% subcategory=Kinematics
-    export function default_action_run(action : action_name){
-        send_data(action);
-    }
 
-    
+    /**
+     * Gets the sonar distance
+    */
+    //% weight=77 blockId=get_sonar_distance block="Get the sonar distance (mm)"
+    //% subcategory=sensor
+    export function get_sonar_distance(): number {
+        // 10、发光超声波距离
+        voltage = iicreadnum(0x0A, 2, NumberFormat.UInt16LE)
+        return voltage;
+    }
 
 }
 
