@@ -245,7 +245,7 @@ namespace MechDog {
      * Gets the power value of MechDog
     */
     //% weight=78 blockId=get_voltage block="Get the electricity value (V)"
-    //% subcategory=sensor
+    //% subcategory=Sensor
     export function get_voltage(): number {
         // 9、电量返回值
         voltage = iicreadnum(0x09 , 2 , NumberFormat.UInt16LE)
@@ -257,7 +257,7 @@ namespace MechDog {
      * Gets the sonar distance
     */
     //% weight=77 blockId=get_sonar_distance block="Get the sonar distance (mm)"
-    //% subcategory=sensor
+    //% subcategory=Sensor
     export function get_sonar_distance(): number {
         // 10、发光超声波距离
         voltage = iicreadnum(0x0A, 2, NumberFormat.UInt16LE)

@@ -1,6 +1,7 @@
 {
 	"MechDog.mechdog_init|block": "初始化MechDog",
 	"MechDog.get_voltage|block": "返回电量值（V）",
+	"MechDog.get_sonar_distance|block": "返回超声波检测到的距离值（mm）",
 	"MechDog.default_action_run|block": "运行|%action|动作组",
 
 	"MechDog.action_name.left_foot_kick|block": "左踢球",
@@ -29,7 +30,7 @@
 	"MechDog.change_height|block": "设置MechDog身体|%direction||%distance|mm，运行时间|%time|",
 
 	"{id:subcategory}Init":"初始化",
-	"{id:subcategory}Base":"基础",
+	"{id:subcategory}Sensor":"传感器",
 	"{id:subcategory}Kinematics":"运动学"
 }
 
