@@ -151,10 +151,11 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
+    // It takes| %x_time |(ms) to| %x_direction |the x axis by| %x_distance |(mm)
     /**
      * Forward and backward the body
     */
-    //% weight=68 blockId=change_forward_back block="It takes| %x_time |(ms) to| %x_direction |the x axis by| %x_distance |(mm)"
+    //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm and run time | %x_time |ms"
     //% subcategory=Kinematics
     export function change_forward_back(x_direction: x_dir, x_distance: number, x_time: number) {
         //3、前/后 平移身体(度) ，时间(500ms)
