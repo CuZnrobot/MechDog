@@ -27,10 +27,10 @@
 	"MechDog.z_dir.lower|block": "降低",
 	"MechDog.x_dir.forward|block": "向前",
 	"MechDog.x_dir.backward|block": "向后",
-	"MechDog.change_height|block": "设置MechDog身体| %direction || %distance |mm，运行时间| %time |ms",
-	"MechDog.change_forward_back|block": "设置MechDog身体| %x_direction || %x_distance |mm，运行时间| %x_time |ms",
+	"MechDog.change_height|block": "设置MechDog身体| %direction || %distance |mm, 运行时间| %time |ms",
+	"MechDog.change_forward_back|block": "设置MechDog身体| %x_direction || %x_distance |mm, 运行时间| %x_time |ms",
 
-	"MechDog.run|block": "设置MechDog| %direction || %stride |mm，运行的方向角度| %angle |度",
+	"MechDog.run|block": "设置MechDog| %direction || %stride |mm, 运行的方向角度| %angle |度",
 	"MechDog.run_default_action|block": "运行| %default_action |动作组",
 	"MechDog.run_action|block": "运行| %action_number |动作组",
 	"MechDog.stop_action|block": "停止动作组运行",
