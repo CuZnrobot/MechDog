@@ -154,7 +154,7 @@ namespace MechDog {
     /**
      * Forward and backward the body
     */
-    //% weight=68 blockId=change_forward_back block="It takes %x_time (ms) to %x_direction the x axis by %x_distance(mm)"
+    //% weight=68 blockId=change_forward_back block="It takes| %x_time |(ms) to| %x_direction |the x axis by| %x_distance |(mm)"
     //% subcategory=Kinematics
     export function change_forward_back(x_direction: x_dir, x_distance: number, x_time: number) {
         //3、前/后 平移身体(度) ，时间(500ms)
