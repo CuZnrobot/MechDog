@@ -1,10 +1,12 @@
 {
 	"MechDog.mechdog_init":"MechDog初始化，请在开机时执行",
+	
 	"MechDog.get_voltage":"返回MechDog的电量值",
 	"MechDog.get_sonar_distance":"返回超声波测量到的距离值",
-	"MechDog.run_default_action":"运行默认动作组",
+	
 	"MechDog.set_default_pose":"设置MechDog为默认站立姿态",
 	"MechDog.change_height":"设置MechDog身体抬高或降低",
+	"MechDog.run_default_action":"运行默认动作组",
 	"MechDog.run_action":"运行动作组",
 	"MechDog.stop_action":"停止动作组运行"
 
