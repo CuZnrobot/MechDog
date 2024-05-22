@@ -27,12 +27,12 @@
 	"MechDog.z_dir.lower|block": "降低",
 	"MechDog.x_dir.forward|block": "向前",
 	"MechDog.x_dir.backward|block": "向后",
-	"MechDog.change_height|block": "设置MechDog身体| %direction | | %distance |mm, 运行时间| %time |ms",
+	"MechDog.change_height|block": "设置MechDog身体|%direction| |%distance|mm, 运行时间|%time|ms", 
 	"MechDog.change_forward_back|block": "设置MechDog身体| %x_direction |平移| %x_distance |mm, 运行时间| %x_time |ms",
 
 	"MechDog.run_dir.Go|block": "前进",
 	"MechDog.run_dir.Bcak|block": "后退",
-	"MechDog.run|block": "设置MechDog| %direction || %stride |mm, 运行的方向角度| %angle |度",
+	"MechDog.run|block": "设置MechDog|%direction| |%stride|mm, 运行的方向角度|%angle|度",
 
 
 	"MechDog.default_atcion_name.left_foot_kick|block": "左踢球",
