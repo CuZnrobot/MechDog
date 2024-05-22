@@ -30,7 +30,27 @@
 	"MechDog.change_height|block": "设置MechDog身体| %direction | | %distance |mm, 运行时间| %time |ms",
 	"MechDog.change_forward_back|block": "设置MechDog身体| %x_direction |平移| %x_distance |mm, 运行时间| %x_time |ms",
 
+	"MechDog.run_dir.Go|block": "前进",
+	"MechDog.run_dir.Bcak|block": "后退",
 	"MechDog.run|block": "设置MechDog| %direction || %stride |mm, 运行的方向角度| %angle |度",
+
+
+	"MechDog.default_atcion_name.left_foot_kick|block": "左踢球",
+	"MechDog.default_atcion_name.right_foot_kick|block": "右踢球",
+	"MechDog.default_atcion_name.stand_four_legs|block": "四脚站立",
+	"MechDog.default_atcion_name.sit_dowm|block": "坐下",
+	"MechDog.default_atcion_name.go_prone|block": "趴下",
+	"MechDog.default_atcion_name.stand_two_legs|block": "双腿站立",
+	"MechDog.default_atcion_name.handshake|block": "握手",
+	"MechDog.default_atcion_name.scrape_a_bow|block": "作揖",
+	"MechDog.default_atcion_name.nodding_motion|block": "点头",
+	"MechDog.default_atcion_name.boxing|block": "拳击",
+	"MechDog.default_atcion_name.stretch_oneself|block": "伸懒腰",
+	"MechDog.default_atcion_name.pee|block": "撒尿",
+	"MechDog.default_atcion_name.press_up|block": "俯卧撑",
+	"MechDog.default_atcion_name.rotation_pitch|block": "转动Pitch",
+	"MechDog.default_atcion_name.rotation_roll|block": "转动Roll",
+
 	"MechDog.run_default_action|block": "运行| %default_action |动作组",
 	"MechDog.run_action|block": "运行| %action_number |动作组",
 	"MechDog.stop_action|block": "停止动作组运行",
@@ -40,3 +60,36 @@
 	"{id:subcategory}Kinematics":"运动学"
 }
 
+export enum default_atcion_name {
+	//% block="left_foot_kick"
+	left_foot_kick = 0x1,
+	//% block=""
+	right_foot_kick,
+	//% block=""
+	stand_four_legs,
+	//% block=""
+	sit_dowm,
+	//% block=""
+	go_prone,
+	//% block=""
+	stand_two_legs,
+	//% block=""
+	handshake,
+	//% block=""
+	scrape_a_bow,
+	//% block=""
+	nodding_motion,
+	//% block=""
+	boxing,
+	//% block=""
+	stretch_oneself,
+	//% block=""
+	pee,
+	//% block=""
+	press_up,
+	//% block=""
+	rotation_pitch,
+	//% block=""
+	rotation_roll,
+	//% block=""
+	stomp_on_the_spot,

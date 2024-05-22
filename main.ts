@@ -90,9 +90,7 @@ namespace MechDog {
         //% block="rotation_pitch"
         rotation_pitch,
         //% block="rotation_roll"
-        rotation_roll,
-        //% block="stomp_on_the_spot"
-        stomp_on_the_spot,
+        rotation_roll
     }
 
 

@@ -1,4 +1,4 @@
-# iothouse
+# mechdog
 
 Extension for CuZnrobot MechDog
 
