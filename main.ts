@@ -134,10 +134,11 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
+    // It takes %time (ms) to %direction the z axis by %distance(mm)
     /**
      * Raise or lower the body
     */
-    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms  It takes %time (ms) to %direction the z axis by %distance(mm)"
+    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms"
     //% subcategory=Kinematics
     export function change_height(direction: z_dir, distance: number, time: number) {
         //2、抬高/降低身体(mm)，时间(500ms)
@@ -171,7 +172,7 @@ namespace MechDog {
     /**
      * Make the MechDog move
     */
-    //% weight=67 blockId=run block="Set MechDog %run_dir stride to %stride mm and the direction Angle of movement to %angle degrees"
+    //% weight=67 blockId=run block="Set MechDog %direction stride to %stride mm and the direction Angle of movement to %angle degrees"
     //% subcategory=Kinematics
     export function run(direction: run_dir, stride: number, angle: number) {
         // 5、设置前进步幅(80mm)和运动的方向角度(0度)
