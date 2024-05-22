@@ -132,11 +132,12 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
+    // Set MechDog | %direction | | %distance |mm and run time | %time |ms
 
     /**
      * Raise or lower the body
     */
-    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms"
+    //% weight=69 blockId=change_height block="Set MechDog | %x_direction | | %x_distance |mm and run time | %x_time |ms"
     //% subcategory=Kinematics
     export function change_height(direction: z_dir, distance: number, time: number) {
         //2、抬高/降低身体(mm)，时间(500ms)
