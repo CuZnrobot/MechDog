@@ -134,7 +134,7 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
-    // It takes %time (ms) to %direction the z axis by %distance(mm)
+
     /**
      * Raise or lower the body
     */
@@ -151,7 +151,7 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
-    // It takes| %x_time |(ms) to| %x_direction |the x axis by| %x_distance |(mm)
+
     /**
      * Forward and backward the body
     */
