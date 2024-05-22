@@ -97,9 +97,7 @@ namespace MechDog {
 
     const MECHDOG_IIC_ADDR = 0x32
     let voltage: number = 0;
-
-    
-
+    let sonar_distance: number = 0
 
     /**
      * MechDog initialization, please execute at boot time
@@ -139,6 +137,11 @@ namespace MechDog {
     */
     //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms"
     //% subcategory=Kinematics
+    /**
+     * TODO: describe your function here
+     * @param distance describe parameter here, eg: 10
+     * @param time describe parameter here, eg: 100
+     */
     export function change_height(direction: z_dir, distance: number, time: number) {
         //2、抬高/降低身体(mm)，时间(500ms)
         let buf = pins.createBuffer(5) //这里的num是按字节算的
@@ -156,6 +159,11 @@ namespace MechDog {
     */
     //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm and run time | %x_time |ms"
     //% subcategory=Kinematics
+    /**
+     * TODO: describe your function here
+     * @param x_distance describe parameter here, eg: 10
+     * @param x_time describe parameter here, eg: 100
+     */
     export function change_forward_back(x_direction: x_dir, x_distance: number, x_time: number) {
         //3、前/后 平移身体(度) ，时间(500ms)
         let buf = pins.createBuffer(5) //这里的num是按字节算的
@@ -174,6 +182,11 @@ namespace MechDog {
     */
     //% weight=67 blockId=run block="Set MechDog %direction stride to %stride mm and the direction Angle of movement to %angle degrees"
     //% subcategory=Kinematics
+    /**
+     * TODO: describe your function here
+     * @param stride describe parameter here, eg: 40
+     * @param angle describe parameter here, eg: 0
+     */
     export function run(direction: run_dir, stride: number, angle: number) {
         // 5、设置前进步幅(80mm)和运动的方向角度(0度)
         let buf = pins.createBuffer(3) //这里的num是按字节算的
@@ -209,6 +222,10 @@ namespace MechDog {
     */
     //% weight=65 blockId=run_action block="Run the %action_number action group"
     //% subcategory=Kinematics
+    /**
+     * TODO: describe your function here
+     * @param action_number describe parameter here, eg: 1
+     */
     export function run_action(action_number: number) {
         // 7、运行动作组名(1)的动作组
         let buf = pins.createBuffer(3) //这里的num是按字节算的
@@ -261,8 +278,14 @@ namespace MechDog {
     //% subcategory=Sensor
     export function get_sonar_distance(): number {
         // 10、发光超声波距离
-        voltage = iicreadnum(0x0A, 2, NumberFormat.UInt16LE)
-        return voltage;
+        let dis = iicreadnum(0x0A, 2, NumberFormat.UInt16LE)
+        if(dis > 500)
+        {
+            sonar_distance = 500
+        }else{
+            sonar_distance = dis
+        }
+        return sonar_distance;
     }
 
 }
