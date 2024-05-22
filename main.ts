@@ -232,7 +232,7 @@ namespace MechDog {
      * @param action_number describe parameter here, eg: 1
      */
     export function run_action(action_number: number) {
-        if(action_name > 0 && action_name < 255)
+        if(action_number > 0 && action_number < 255)
         {
             // 7、运行动作组名(1)的动作组
             let buf = pins.createBuffer(3) //这里的num是按字节算的
