@@ -56,7 +56,7 @@ namespace MechDog {
     export enum run_dir {
         //% block="Go"
         go = 0x1,
-        //% block="Bcak"
+        //% block="Back"
         back = 0x2
     }
 

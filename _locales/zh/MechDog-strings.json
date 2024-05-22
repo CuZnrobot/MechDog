@@ -31,7 +31,7 @@
 	"MechDog.change_forward_back|block": "设置MechDog身体|%x_direction|平移, 距离为|%x_distance|mm, 运行时间|%x_time|ms",
 
 	"MechDog.run_dir.Go|block": "前进",
-	"MechDog.run_dir.Bcak|block": "后退",
+	"MechDog.run_dir.Back|block": "后退",
 	"MechDog.run|block": "设置MechDog|%direction|, 步幅|%stride|mm, 运行的方向角度|%angle|度",
 
 
