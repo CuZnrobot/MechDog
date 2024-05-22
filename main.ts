@@ -137,6 +137,7 @@ namespace MechDog {
     */
     //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms"
     //% subcategory=Kinematics
+    //% distance.min=0 distance.max=40
     /**
      * TODO: describe your function here
      * @param distance describe parameter here, eg: 10
@@ -159,6 +160,7 @@ namespace MechDog {
     */
     //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm and run time | %x_time |ms"
     //% subcategory=Kinematics
+    //% x_distance.min=0 x_distance.max=40
     /**
      * TODO: describe your function here
      * @param x_distance describe parameter here, eg: 10
@@ -182,6 +184,8 @@ namespace MechDog {
     */
     //% weight=67 blockId=run block="Set MechDog %direction stride to %stride mm and the direction Angle of movement to %angle degrees"
     //% subcategory=Kinematics
+    //% stride.min=0 stride.max=100
+    //% angle.min=-50 angle.max=50
     /**
      * TODO: describe your function here
      * @param stride describe parameter here, eg: 40
@@ -222,19 +226,23 @@ namespace MechDog {
     */
     //% weight=65 blockId=run_action block="Run the %action_number action group"
     //% subcategory=Kinematics
+    //% action_number.min=1 action_number.max=255
     /**
      * TODO: describe your function here
      * @param action_number describe parameter here, eg: 1
      */
     export function run_action(action_number: number) {
-        // 7、运行动作组名(1)的动作组
-        let buf = pins.createBuffer(3) //这里的num是按字节算的
-        buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
-        buf.setNumber(NumberFormat.Int16LE, 1, 0x00)
-        buf.setNumber(NumberFormat.Int16LE, 2, action_number)
-        pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+        if(action_name > 0 && action_name < 255)
+        {
+            // 7、运行动作组名(1)的动作组
+            let buf = pins.createBuffer(3) //这里的num是按字节算的
+            buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
+            buf.setNumber(NumberFormat.Int16LE, 1, 0x00)
+            buf.setNumber(NumberFormat.Int16LE, 2, action_number)
+            pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
+        }
     }
-    
+
     /**
      * Stop group
     */
