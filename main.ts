@@ -137,7 +137,7 @@ namespace MechDog {
     /**
      * Raise or lower the body
     */
-    //% weight=69 blockId=change_height block="It takes %time (ms) to %direction the z axis by %distance(mm)"
+    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms  It takes %time (ms) to %direction the z axis by %distance(mm)"
     //% subcategory=Kinematics
     export function change_height(direction: z_dir, distance: number, time: number) {
         //2、抬高/降低身体(mm)，时间(500ms)
