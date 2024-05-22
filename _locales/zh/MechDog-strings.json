@@ -59,37 +59,3 @@
 	"{id:subcategory}Sensor":"传感器",
 	"{id:subcategory}Kinematics":"运动学"
 }
-
-export enum default_atcion_name {
-	//% block="left_foot_kick"
-	left_foot_kick = 0x1,
-	//% block=""
-	right_foot_kick,
-	//% block=""
-	stand_four_legs,
-	//% block=""
-	sit_dowm,
-	//% block=""
-	go_prone,
-	//% block=""
-	stand_two_legs,
-	//% block=""
-	handshake,
-	//% block=""
-	scrape_a_bow,
-	//% block=""
-	nodding_motion,
-	//% block=""
-	boxing,
-	//% block=""
-	stretch_oneself,
-	//% block=""
-	pee,
-	//% block=""
-	press_up,
-	//% block=""
-	rotation_pitch,
-	//% block=""
-	rotation_roll,
-	//% block=""
-	stomp_on_the_spot,
