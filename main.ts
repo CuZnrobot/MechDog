@@ -54,45 +54,11 @@ namespace MechDog {
     }
 
     export enum run_dir {
-        //% block="Forward"
+        //% block="Go forward"
         go = 0x1,
-        //% block="Backward"
+        //% block="Go backward"
         back = 0x2
     }
-
-    // export enum default_atcion_name {
-    //     //% block="left_foot_kick"
-    //     left_foot_kick = 0x1,
-    //     //% block="right_foot_kick"
-    //     right_foot_kick,
-    //     //% block="stand_four_legs"
-    //     stand_four_legs,
-    //     //% block="sit_dowm"
-    //     sit_dowm,
-    //     //% block="go_prone"
-    //     go_prone,
-    //     //% block="stand_two_legs"
-    //     stand_two_legs,
-    //     //% block="handshake"
-    //     handshake,
-    //     //% block="scrape_a_bow"
-    //     scrape_a_bow,
-    //     //% block="nodding_motion"
-    //     nodding_motion,
-    //     //% block="boxing"
-    //     boxing,
-    //     //% block="stretch_oneself"
-    //     stretch_oneself,
-    //     //% block="pee"
-    //     pee,
-    //     //% block="press_up"
-    //     press_up,
-    //     //% block="rotation_pitch"
-    //     rotation_pitch,
-    //     //% block="rotation_roll"
-    //     rotation_roll
-    // }
-
 
 
     const MECHDOG_IIC_ADDR = 0x32
@@ -100,7 +66,7 @@ namespace MechDog {
     let sonar_distance: number = 0
 
     /**
-     * MechDog initialization, please execute at boot time
+     * Please perform the initialization upon booting up the robot
     */
     //% weight=100 blockId=mechdog_init block="Initialize MechDog"
     //% subcategory=Init
@@ -131,7 +97,7 @@ namespace MechDog {
     }
 
     /**
-     * Raise or lower the body
+     * Set MechDog body up or down
     */
     //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance | mm,duration | %time |ms"
     //% subcategory=Kinematics
@@ -154,7 +120,7 @@ namespace MechDog {
 
 
     /**
-     * Forward and backward the body
+     * Set the MechDog body to pan forward or backward
     */
     //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm,duration | %x_time |ms"
     //% subcategory=Kinematics
@@ -180,7 +146,7 @@ namespace MechDog {
     /**
      * Make the MechDog move
     */
-    //% weight=67 blockId=run block="Set MechDog's | %direction | stride to | %stride | mm, movement direction angle to | %angle | degrees"
+    //% weight=67 blockId=run block="Set MechDog's | %direction | | %stride | mm, movement direction angle to | %angle | degrees"
     //% subcategory=Kinematics
     //% stride.min=0 stride.max=100
     //% angle.min=-50 angle.max=50
@@ -206,7 +172,7 @@ namespace MechDog {
     /**
      * Run the default action group
     */
-    //% weight=66 blockId=run_default_action block="Run the %default_action action group"
+    //% weight=66 blockId=run_default_action block="MechDog run action group named %default_action"
     //% subcategory=Kinematics
     export function run_default_action(default_action: default_atcion_name) {
         // 6、运行默认动作组
@@ -222,7 +188,7 @@ namespace MechDog {
     /**
      * Run the user action group
     */
-    //% weight=65 blockId=run_action block="MechDog runs action group %action_number"
+    //% weight=65 blockId=run_action block="MechDog run action group named %action_number"
     //% subcategory=Kinematics
     //% action_number.min=1 action_number.max=255
     /**
@@ -242,7 +208,7 @@ namespace MechDog {
     }
 
     /**
-     * Stop group
+     * Stop running action group
     */
     //% weight=64 blockId=stop_action block="Stop running action group"
     //% subcategory=Kinematics
@@ -266,7 +232,7 @@ namespace MechDog {
     }
 
     /**
-     * Gets the power value of MechDog
+     * Get the electricity value (V)
     */
     //% weight=78 blockId=get_voltage block="Get the electricity value (V)"
     //% subcategory=Sensor
@@ -278,9 +244,9 @@ namespace MechDog {
 
 
     /**
-     * Gets the sonar distance
+     * Get the distance value(mm) detected by ultrasonic
     */
-    //% weight=77 blockId=get_sonar_distance block="Get the sonar distance (mm)"
+    //% weight=77 blockId=get_sonar_distance block="Get the distance value(mm) detected by ultrasonic"
     //% subcategory=Sensor
     export function get_sonar_distance(): number {
         // 10、发光超声波距离
