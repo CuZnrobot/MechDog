@@ -2,7 +2,6 @@
 	"MechDog.mechdog_init|block": "初始化MechDog",
 	"MechDog.get_voltage|block": "返回电量值（V）",
 	"MechDog.get_sonar_distance|block": "返回超声波检测到的距离值（mm）",
-	"MechDog.default_action_run|block": "运行|%action|动作组",
 
 	"MechDog.action_name.left_foot_kick|block": "左踢球",
 	"MechDog.action_name.right_foot_kick|block": "右踢球",
@@ -19,9 +18,9 @@
 	"MechDog.action_name.press_up|block": "俯卧撑",
 	"MechDog.action_name.rotation_pitch|block": "转动Pitch",
 	"MechDog.action_name.rotation_roll|block": "转动Roll",
-	"MechDog.action_name.normal_attitude|block": "正常站立",
+	"MechDog.action_name.normal_attitude|block": "立正",
 
-	"MechDog.set_default_pose|block": "设置为默认站立姿态",
+	"MechDog.set_default_pose|block": "设置MechDog初始化姿态",
 
 	"MechDog.z_dir.raise|block": "抬高",
 	"MechDog.z_dir.lower|block": "降低",
@@ -51,8 +50,8 @@
 	"MechDog.default_atcion_name.rotation_pitch|block": "转动Pitch",
 	"MechDog.default_atcion_name.rotation_roll|block": "转动Roll",
 
-	"MechDog.run_default_action|block": "运行| %default_action |动作组",
-	"MechDog.run_action|block": "运行| %action_number |动作组",
+	"MechDog.run_default_action|block": "运行MechDog动作组名| %default_action |的动作组",
+	"MechDog.run_action|block": "运行MechDog动作组名| %action_number |的动作组",
 	"MechDog.stop_action|block": "停止动作组运行",
 
 	"{id:subcategory}Init":"初始化",

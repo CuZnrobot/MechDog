@@ -4,45 +4,45 @@
 //% weight=10 icon="\uf013" color=#ff7f00
 namespace MechDog {
 
-    export enum action_name {
-        //% block="Left foot kick"
+    export enum default_atcion_name {
+        //% block="Left kick"
         left_foot_kick = 0x1,
-        //% block="Right foot kick"
+        //% block="Right kick"
         right_foot_kick = 0x2,
-        //% block="Stand on all fours"
+        //% block="Four-legged standing"
         stand_four_legs = 0x3,
-        //% block="Sit dowm"
+        //% block="Sit down"
         sit_dowm = 0x4,
-        //% block="go prone"
+        //% block="Get down"
         go_prone = 0x5,
-        //% block="Stand on two legs"
+        //% block="Two-legged standing"
         stand_two_legs = 0x6,
         //% block="Handshake"
         handshake = 0x7,
-        //% block="Scrape a bow"
+        //% block="Bow"
         scrape_a_bow = 0x8,
         //% block="Nod"
         nodding_motion = 0x9,
         //% block="Boxing"
         boxing = 0x10,
-        //% block="Stretch oneself"
+        //% block="Stretch"
         stretch_oneself = 0x11,
         //% block="Pee"
         pee = 0x12,
-        //% block="press-up"
+        //% block="Push up"
         press_up = 0x13,
-        //% block="Turning pitch"
+        //% block="Rotate PITCH"
         rotation_pitch = 0x14,
-        //% block="Turning roll"
+        //% block="Rotate ROLL"
         rotation_roll = 0x15,
-        //% block="Normal attitude"
+        //% block="Attention"
         normal_attitude = 0x16
     }
 
     export enum z_dir {
-        //% block="Raise"
+        //% block="Up"
         raise = 0x1,
-        //% block="Lower"
+        //% block="Down"
         lower = 0x2
     }
 
@@ -54,44 +54,44 @@ namespace MechDog {
     }
 
     export enum run_dir {
-        //% block="Go"
+        //% block="Forward"
         go = 0x1,
-        //% block="Back"
+        //% block="Backward"
         back = 0x2
     }
 
-    export enum default_atcion_name {
-        //% block="left_foot_kick"
-        left_foot_kick = 0x1,
-        //% block="right_foot_kick"
-        right_foot_kick,
-        //% block="stand_four_legs"
-        stand_four_legs,
-        //% block="sit_dowm"
-        sit_dowm,
-        //% block="go_prone"
-        go_prone,
-        //% block="stand_two_legs"
-        stand_two_legs,
-        //% block="handshake"
-        handshake,
-        //% block="scrape_a_bow"
-        scrape_a_bow,
-        //% block="nodding_motion"
-        nodding_motion,
-        //% block="boxing"
-        boxing,
-        //% block="stretch_oneself"
-        stretch_oneself,
-        //% block="pee"
-        pee,
-        //% block="press_up"
-        press_up,
-        //% block="rotation_pitch"
-        rotation_pitch,
-        //% block="rotation_roll"
-        rotation_roll
-    }
+    // export enum default_atcion_name {
+    //     //% block="left_foot_kick"
+    //     left_foot_kick = 0x1,
+    //     //% block="right_foot_kick"
+    //     right_foot_kick,
+    //     //% block="stand_four_legs"
+    //     stand_four_legs,
+    //     //% block="sit_dowm"
+    //     sit_dowm,
+    //     //% block="go_prone"
+    //     go_prone,
+    //     //% block="stand_two_legs"
+    //     stand_two_legs,
+    //     //% block="handshake"
+    //     handshake,
+    //     //% block="scrape_a_bow"
+    //     scrape_a_bow,
+    //     //% block="nodding_motion"
+    //     nodding_motion,
+    //     //% block="boxing"
+    //     boxing,
+    //     //% block="stretch_oneself"
+    //     stretch_oneself,
+    //     //% block="pee"
+    //     pee,
+    //     //% block="press_up"
+    //     press_up,
+    //     //% block="rotation_pitch"
+    //     rotation_pitch,
+    //     //% block="rotation_roll"
+    //     rotation_roll
+    // }
 
 
 
@@ -120,7 +120,7 @@ namespace MechDog {
     /**
      * Set MechDog as the default standing posture
     */
-    //% weight=70 blockId=set_default_pose block="Set to the initial standing position"
+    //% weight=70 blockId=set_default_pose block="Set MechDog initialization posture"
     //% subcategory=Kinematics
     export function set_default_pose() {
         //1、恢复到初始化姿态，时间(500ms)
@@ -130,12 +130,10 @@ namespace MechDog {
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
-    // Set MechDog | %direction | | %distance |mm and run time | %time |ms
-
     /**
      * Raise or lower the body
     */
-    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance |mm and run time | %time |ms"
+    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance | mm,duration | %time |ms"
     //% subcategory=Kinematics
     //% distance.min=0 distance.max=40
     /**
@@ -158,7 +156,7 @@ namespace MechDog {
     /**
      * Forward and backward the body
     */
-    //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm and run time | %x_time |ms"
+    //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm,duration | %x_time |ms"
     //% subcategory=Kinematics
     //% x_distance.min=0 x_distance.max=40
     /**
@@ -182,7 +180,7 @@ namespace MechDog {
     /**
      * Make the MechDog move
     */
-    //% weight=67 blockId=run block="Set MechDog %direction stride to %stride mm and the direction Angle of movement to %angle degrees"
+    //% weight=67 blockId=run block="Set MechDog's | %direction | stride to | %stride | mm, movement direction angle to | %angle | degrees"
     //% subcategory=Kinematics
     //% stride.min=0 stride.max=100
     //% angle.min=-50 angle.max=50
@@ -224,7 +222,7 @@ namespace MechDog {
     /**
      * Run the user action group
     */
-    //% weight=65 blockId=run_action block="Run the %action_number action group"
+    //% weight=65 blockId=run_action block="MechDog runs action group %action_number"
     //% subcategory=Kinematics
     //% action_number.min=1 action_number.max=255
     /**
@@ -246,7 +244,7 @@ namespace MechDog {
     /**
      * Stop group
     */
-    //% weight=64 blockId=stop_action block="Stop group"
+    //% weight=64 blockId=stop_action block="Stop running action group"
     //% subcategory=Kinematics
     export function stop_action() {
         // 8、停止动作组运行
