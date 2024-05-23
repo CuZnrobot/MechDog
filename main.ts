@@ -163,8 +163,8 @@ namespace MechDog {
             stride = -stride
         }
         buf.setNumber(NumberFormat.UInt8LE, 0, 0x06)
-        buf.setNumber(NumberFormat.Int16LE, 1, stride) //这里的下标是按开始字节下标算的
-        buf.setNumber(NumberFormat.Int16LE, 2, angle) //所以这里是3，第3个字节开始的
+        buf.setNumber(NumberFormat.Int8LE, 1, stride) //这里的下标是按开始字节下标算的
+        buf.setNumber(NumberFormat.Int8LE, 2, angle) //所以这里是3，第3个字节开始的
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
