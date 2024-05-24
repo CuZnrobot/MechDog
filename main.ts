@@ -24,19 +24,19 @@ namespace MechDog {
         //% block="Nod"
         nodding_motion = 0x9,
         //% block="Boxing"
-        boxing = 0x10,
+        boxing,
         //% block="Stretch"
-        stretch_oneself = 0x11,
+        stretch_oneself,
         //% block="Pee"
-        pee = 0x12,
+        pee,
         //% block="Push up"
-        press_up = 0x13,
+        press_up,
         //% block="Rotate PITCH"
-        rotation_pitch = 0x14,
+        rotation_pitch,
         //% block="Rotate ROLL"
-        rotation_roll = 0x15,
+        rotation_roll,
         //% block="Attention"
-        normal_attitude = 0x16
+        normal_attitude
     }
 
     export enum z_dir {
