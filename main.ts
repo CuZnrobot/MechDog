@@ -178,8 +178,8 @@ namespace MechDog {
         // 6、运行默认动作组
         let buf = pins.createBuffer(3) //这里的num是按字节算的
         buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
-        buf.setNumber(NumberFormat.Int16LE, 1, default_action)
-        buf.setNumber(NumberFormat.Int16LE, 2, 0x00)
+        buf.setNumber(NumberFormat.UInt8LE, 1, default_action)
+        buf.setNumber(NumberFormat.UInt8LE, 2, 0x00)
         pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
     }
 
