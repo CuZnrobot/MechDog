@@ -148,7 +148,7 @@ namespace MechDog {
     */
     //% weight=67 blockId=run block="Set MechDog's | %direction | | %stride | mm, movement direction angle to | %angle | degrees"
     //% subcategory=Kinematics
-    //% stride.min=0 stride.max=100
+    //% stride.min=0 stride.max=150
     //% angle.min=-50 angle.max=50
     /**
      * TODO: describe your function here
