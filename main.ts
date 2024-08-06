@@ -101,10 +101,10 @@ namespace MechDog {
     */
     //% weight=69 blockId=change_roll block="Set MechDog | %direction | to turn | %distance | degrees ,duration | %time |ms"
     //% subcategory=Kinematics
-    //% distance.min=0 distance.max=40
+    //% distance.min=0 distance.max=20
     /**
      * TODO: describe your function here
-     * @param distance describe parameter here, eg: 10
+     * @param distance describe parameter here, eg: 5
      * @param time describe parameter here, eg: 100
      */
     export function change_roll(direction: roll_dir, distance: number, time: number) {
@@ -124,10 +124,10 @@ namespace MechDog {
     */
     //% weight=68 blockId=change_pitch block="Set MechDog | %x_direction | to turn | %x_distance | degrees ,duration | %x_time |ms"
     //% subcategory=Kinematics
-    //% x_distance.min=0 x_distance.max=40
+    //% x_distance.min=0 x_distance.max=20
     /**
      * TODO: describe your function here
-     * @param x_distance describe parameter here, eg: 10
+     * @param x_distance describe parameter here, eg: 5
      * @param x_time describe parameter here, eg: 100
      */
     export function change_pitch(x_direction: pitch_dir, x_distance: number, x_time: number) {
@@ -152,7 +152,7 @@ namespace MechDog {
     //% angle.min=-50 angle.max=50
     /**
      * TODO: describe your function here
-     * @param stride describe parameter here, eg: 40
+     * @param stride describe parameter here, eg: 90
      * @param angle describe parameter here, eg: 0
      */
     export function run(direction: run_dir, stride: number, angle: number) {
