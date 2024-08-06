@@ -39,18 +39,18 @@ namespace MechDog {
         normal_attitude
     }
 
-    export enum z_dir {
-        //% block="Up"
-        raise = 0x1,
-        //% block="Down"
-        lower = 0x2
+    export enum roll_dir {
+        //% block="Left"
+        left = 0x1,
+        //% block="Right"
+        right = 0x2
     }
 
-    export enum x_dir {
-        //% block="Forward"
-        forward = 0x1,
-        //% block="Backward"
-        backward = 0x2
+    export enum pitch_dir {
+        //% block="Forerake"
+        forerake = 0x1,
+        //% block="Hypsokinesis"
+        hypsokinesis = 0x2
     }
 
     export enum run_dir {
@@ -97,9 +97,9 @@ namespace MechDog {
     }
 
     /**
-     * Set MechDog body up or down
+     * Set MechDog body change roll
     */
-    //% weight=69 blockId=change_height block="Set MechDog | %direction | | %distance | mm,duration | %time |ms"
+    //% weight=69 blockId=change_roll block="Set MechDog | %direction | to turn | %distance | degrees ,duration | %time |ms"
     //% subcategory=Kinematics
     //% distance.min=0 distance.max=40
     /**
@@ -107,11 +107,11 @@ namespace MechDog {
      * @param distance describe parameter here, eg: 10
      * @param time describe parameter here, eg: 100
      */
-    export function change_height(direction: z_dir, distance: number, time: number) {
-        //2、抬高/降低身体(mm)，时间(500ms)
+    export function change_roll(direction: roll_dir, distance: number, time: number) {
+        //2、转动roll(度)，时间(500ms)
         let buf = pins.createBuffer(5) //这里的num是按字节算的
         buf.setNumber(NumberFormat.UInt8LE, 0, 0x02)
-        if (direction == z_dir.lower)
+        if (direction == roll_dir.right)
             distance = -distance
         buf.setNumber(NumberFormat.Int16LE, 1, distance) //这里的下标是按开始字节下标算的
         buf.setNumber(NumberFormat.UInt16LE, 3, time) //所以这里是3，第3个字节开始的
@@ -120,9 +120,9 @@ namespace MechDog {
 
 
     /**
-     * Set the MechDog body to pan forward or backward
+     * Set the MechDog body change pitch
     */
-    //% weight=68 blockId=change_forward_back block="Set MechDog | %x_direction | | %x_distance |mm,duration | %x_time |ms"
+    //% weight=68 blockId=change_pitch block="Set MechDog | %x_direction | to turn | %x_distance | degrees ,duration | %x_time |ms"
     //% subcategory=Kinematics
     //% x_distance.min=0 x_distance.max=40
     /**
@@ -130,11 +130,11 @@ namespace MechDog {
      * @param x_distance describe parameter here, eg: 10
      * @param x_time describe parameter here, eg: 100
      */
-    export function change_forward_back(x_direction: x_dir, x_distance: number, x_time: number) {
-        //3、前/后 平移身体(度) ，时间(500ms)
+    export function change_pitch(x_direction: pitch_dir, x_distance: number, x_time: number) {
+        //3、转动pitch(度) ，时间(500ms)
         let buf = pins.createBuffer(5) //这里的num是按字节算的
         buf.setNumber(NumberFormat.UInt8LE, 0, 0x04)
-        if (x_direction == x_dir.backward)
+        if (x_direction == pitch_dir.hypsokinesis)
             x_distance = -x_distance
         buf.setNumber(NumberFormat.Int16LE, 1, x_distance) //这里的下标是按开始字节下标算的
         buf.setNumber(NumberFormat.UInt16LE, 3, x_time) //所以这里是3，第3个字节开始的

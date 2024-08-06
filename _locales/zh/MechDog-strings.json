@@ -22,12 +22,12 @@
 
 	"MechDog.set_default_pose|block": "设置MechDog初始化姿态",
 
-	"MechDog.z_dir.raise|block": "抬高",
-	"MechDog.z_dir.lower|block": "降低",
-	"MechDog.x_dir.forward|block": "向前",
-	"MechDog.x_dir.backward|block": "向后",
-	"MechDog.change_height|block": "设置MechDog身体|%direction|, 距离为|%distance|mm, 运行时间|%time|ms", 
-	"MechDog.change_forward_back|block": "设置MechDog身体|%x_direction|平移, 距离为|%x_distance|mm, 运行时间|%x_time|ms",
+	"MechDog.roll_dir.left|block": "左倾",
+	"MechDog.roll_dir.right|block": "右倾",
+	"MechDog.pitch_dir.forerake|block": "前倾",
+	"MechDog.pitch_dir.hypsokinesis|block": "后倾",
+	"MechDog.change_roll|block": "设置MechDog身体|%direction|绕X轴转动, 角度为|%distance|度, 运行时间|%time|ms", 
+	"MechDog.change_pitch|block": "设置MechDog身体|%x_direction|绕Y轴转动, 角度为|%x_distance|度, 运行时间|%x_time|ms",
 
 	"MechDog.run_dir.go|block": "前进",
 	"MechDog.run_dir.back|block": "后退",

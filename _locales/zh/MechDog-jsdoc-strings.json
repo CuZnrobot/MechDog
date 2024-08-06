@@ -5,8 +5,8 @@
 	"MechDog.get_sonar_distance":"返回超声波测量到的距离值",
 	
 	"MechDog.set_default_pose":"设置MechDog为默认站立姿态",
-	"MechDog.change_height":"设置MechDog身体抬高或降低",
-	"MechDog.change_forward_back":"设置MechDog身体前移或后移",
+	"MechDog.change_roll":"设置MechDog身体左倾或右倾",
+	"MechDog.change_pitch":"设置MechDog身体前倾或后仰",
 	"MechDog.run":"使MechDog行走",
 	"MechDog.run_default_action":"运行默认动作组",
 	"MechDog.run_action":"运行动作组",
