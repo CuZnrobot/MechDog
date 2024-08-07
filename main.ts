@@ -201,8 +201,8 @@ namespace MechDog {
             // 7、运行动作组名(1)的动作组
             let buf = pins.createBuffer(3) //这里的num是按字节算的
             buf.setNumber(NumberFormat.UInt8LE, 0, 0x07)
-            buf.setNumber(NumberFormat.Int16LE, 1, 0x00)
-            buf.setNumber(NumberFormat.Int16LE, 2, action_number)
+            buf.setNumber(NumberFormat.UInt8LE, 1, 0x00)
+            buf.setNumber(NumberFormat.UInt8LE, 2, action_number)
             pins.i2cWriteBuffer(MECHDOG_IIC_ADDR, buf)
         }
     }
